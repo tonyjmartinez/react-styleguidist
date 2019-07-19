@@ -1,0 +1,15 @@
+<script>
+	function works() {
+		/* Opening and closing comments are fine */
+		console.log('Opening and closing comments work!');
+	}
+	works();
+</script>
+
+<script>
+	function breaks() {
+		// This comment will break the script, because everything after will be in the same line.
+		console.log('Inline comments work too. Good job!');
+	}
+	breaks();
+</script>
