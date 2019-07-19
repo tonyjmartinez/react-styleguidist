@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const rawBody = fs.readFileSync(path.join('./react-styleguide.html'), 'utf8');
+const rawBody = fs.readFileSync(path.join(__dirname, '/react-styleguide.html'), 'utf8');
 
 module.exports = {
 	components: 'components/*.jsx',
