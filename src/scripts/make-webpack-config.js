@@ -22,20 +22,22 @@ module.exports = function(config, env) {
 
 	const isProd = env === 'production';
 
-	const template = isFunction(config.template) ? config.template : MiniHtmlWebpackTemplate;
+	const template = isFunction(config.template)
+		? config.template
+		: context =>
+				minify(MiniHtmlWebpackTemplate(context), {
+					collapseWhitespace: true,
+					preserveLineBreaks: true,
+					minifyJS: true,
+				});
+
 	const templateContext = isFunction(config.template) ? {} : config.template;
 	const htmlPluginOptions = {
 		context: Object.assign({}, templateContext, {
 			title: config.title,
 			container: config.mountPointId,
-			// trimWhitespace: true,
 		}),
-		template: context =>
-			minify(template(context), {
-				collapseWhitespace: true,
-				preserveLineBreaks: true,
-			}),
-		// template,
+		template,
 	};
 
 	let webpackConfig = {
