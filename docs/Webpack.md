@@ -119,7 +119,7 @@ npm install --save-dev babel-loader
 
 > **Note:** If your project doesn’t use webpack you still need add webpack loaders for your files, otherwise Styleguidist won’t be able to load your code.
 
-Then, add a `webpackConfig` section to your `styleguide.config.js` 
+Then, add a `webpackConfig` section to your `styleguide.config.js`
 
 ```js
 module.exports = {
