@@ -11,7 +11,6 @@ const forEach = require('lodash/forEach');
 const isFunction = require('lodash/isFunction');
 const mergeWebpackConfig = require('./utils/mergeWebpackConfig');
 const StyleguidistOptionsPlugin = require('./utils/StyleguidistOptionsPlugin');
-const minify = require('html-minifier').minify;
 
 const RENDERER_REGEXP = /Renderer$/;
 
@@ -22,20 +21,13 @@ module.exports = function(config, env) {
 
 	const isProd = env === 'production';
 
-	const template = isFunction(config.template)
-		? config.template
-		: context =>
-				minify(MiniHtmlWebpackTemplate(context), {
-					collapseWhitespace: true,
-					preserveLineBreaks: true,
-					minifyJS: true,
-				});
-
+	const template = isFunction(config.template) ? config.template : MiniHtmlWebpackTemplate;
 	const templateContext = isFunction(config.template) ? {} : config.template;
 	const htmlPluginOptions = {
 		context: Object.assign({}, templateContext, {
 			title: config.title,
 			container: config.mountPointId,
+			trimWhitespace: true,
 		}),
 		template,
 	};
