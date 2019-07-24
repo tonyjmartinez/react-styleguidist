@@ -147,6 +147,7 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"start": "node lib/bin/styleguidist.js server --config examples/basic/styleguide.config.js",
+		"start:markdown": "node lib/bin/styleguidist.js server --config examples/markdown-importing/styleguide.config.js",
 		"startbug": "node lib/bin/styleguidist.js server --config examples/js-inline-comment-bug/styleguide.config.js",
 		"start:customised": "node lib/bin/styleguidist.js server --config examples/customised/styleguide.config.js",
 		"start:sections": "node lib/bin/styleguidist.js server --config examples/sections/styleguide.config.js",
