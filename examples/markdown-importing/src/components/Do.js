@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Do = props => <div className="Do">{props.children}</div>;
+const Do = ({ children }) => <div className="Do">{children}</div>;
 
 export default Do;
